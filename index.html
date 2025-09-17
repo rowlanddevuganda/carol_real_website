@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBARA - Inspiring Boys Into Accountability, Responsibility, and Action</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 25px 0;
+            border-bottom: 2px solid #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #444444;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #000000;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #000000;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #333333;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid #000000;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: #000000;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #000000;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #ffffff;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #000000;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Pillars Section */
+        .pillars {
+            background-color: #f8f8f8;
+            border-top: 2px solid #000000;
+            border-bottom: 2px solid #000000;
+        }
+        
+        .pillars-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .pillar {
+            background-color: #ffffff;
+            padding: 30px;
+            border: 2px solid #000000;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            transition: transform 0.3s;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pillar i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+        
+        .pillar h3 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .pillar p {
+            color: #333333;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: #ffffff;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #000000;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #f8f8f8;
+            border-top: 2px solid #000000;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: #ffffff;
+            padding: 30px;
+            border: 2px solid #000000;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .vs-code-fix {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-left: 4px solid #000000;
+        }
+        
+        .vs-code-fix h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+        
+        .vs-code-fix ol {
+            margin-left: 20px;
+        }
+        
+        .vs-code-fix li {
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            color: #000000;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .form-group button:hover {
+            background-color: #333333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000000;
+            padding: 40px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 20px;
+            color: #cccccc;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #cccccc;
+        }
+        
+        .copyright {
+            color: #999999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="img/logo.png" alt="IBARA Logo" onerror="this.src='https://placehold.co/50x50/000000/FFFFFF/png?text=IB'">
+                    <h1>IBARA</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#pillars">Pillars</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Building Tomorrow's Leaders</h2>
+            <p>Empowering young men with the values of accountability, responsibility, and purposeful action through mentorship, guidance, and community engagement.</p>
+            <a href="#contact" class="btn">Get Involved</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>IBARA is a transformative initiative dedicated to guiding boys toward becoming accountable, responsible men of action. In a world that often sends confusing messages about masculinity, we provide clarity, purpose, and direction.</p>
+                    <p>Through mentorship programs, workshops, and community engagement, we help young men develop the character and skills needed to navigate life's challenges with integrity and purpose.</p>
+                    <p>Our approach is built on time-tested principles, modern psychological understanding, and a commitment to fostering genuine growth in the next generation of leaders.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/image_1.png" alt="IBARA Mentorship" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=IBARA+Mentorship'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section id="pillars" class="pillars">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Three Pillars</h2>
+            </div>
+            <div class="pillars-container">
+                <div class="pillar">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Accountability</h3>
+                    <p>We teach boys to take ownership of their actions, decisions, and their consequences. Accountability builds character and fosters trust in relationships.</p>
+                </div>
+                <div class="pillar">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Responsibility</h3>
+                    <p>We instill a sense of duty toward oneself, family, and community. Responsible individuals become reliable leaders and valuable team members.</p>
+                </div>
+                <div class="pillar">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Action</h3>
+                    <p>We encourage purposeful action over empty words. Initiative and follow-through are hallmarks of effective leadership and personal achievement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="img/image_7.png" alt="IBARA Activity" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+7'">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/image_2.png" alt="IBARA Workshop" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+2'">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/image_3.png" alt="IBARA Team" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+3'">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/image_4.png" alt="IBARA Event" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+4'">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/image_5.png" alt="IBARA Leadership" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+5'">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/image_6.png" alt="IBARA Community" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+6'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to inspire the next generation of leaders? Contact us to learn more about our programs, events, and how you can get involved with the IBARA initiative.</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Kampala Uganda</p>
+                    <p><i class="fas fa-phone"></i> (256) 776-219180</p>
+                    <p><i class="fas fa-envelope"></i>namandacarol2000@gmail.com</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Inspiring Boys Into Accountability, Responsibility, and Action</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="copyright">© 2023 IBARA Initiative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple image loading without complex error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('IBARA website loaded successfully');
+            
+            // Check if images are in the correct location
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.src.includes('img/')) {
+                    // Create a test image to check if it loads
+                    const testImage = new Image();
+                    testImage.onload = function() {
+                        console.log('Image loaded successfully:', img.src);
+                    };
+                    testImage.onerror = function() {
+                        console.warn('Image failed to load:', img.src);
+                    };
+                    testImage.src = img.src;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
